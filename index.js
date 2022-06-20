@@ -1,10 +1,10 @@
-var addDays = require("date-fns/addDays");
-var format = require("date-fns/format");
-const result = (days) => {
-  const finalResult = addDays(new Date(2020, 7, 22), 10);
-  const final = format(finalResult, "dd-MM-yyyy");
-  return final;
+const addDays = require("date-fns/addDays");
+
+const getDateAfterXDays = (days) => {
+  const newDate = addDays(new Date(2020, 7, 22), days);
+  return `${newDate.getDate()}-${
+    newDate.getMonth() + 1
+  }-${newDate.getFullYear()}`;
 };
-const result1 = result(10);
-console.log(result1);
-module.exports = result;
+
+module.exports = getDateAfterXDays;
